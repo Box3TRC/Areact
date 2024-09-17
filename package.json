@@ -1,0 +1,28 @@
+{
+  "name": "areact",
+  "version": "0.0.1-alpha",
+  "description": "React-like UI programming in Dao3.fun(Arena)",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "license":"MIT",
+  "devDependencies": {
+    "@types/color": "^3.0.6",
+    "color": "^4.2.3",
+    "css-select": "^5.1.0",
+    "cssom": "^0.5.0",
+    "htm": "^3.1.1",
+    "html-escaper": "^3.0.3",
+    "htmlparser2": "^9.1.0",
+    "uhyphen": "^0.2.0"
+  },
+  "scripts": {
+    "test": "esbuild test.tsx --bundle --minify --legal-comments=none --outfile=testout.js",
+    "build-cjs": "esbuild src/index.ts --bundle --minify --outfile=dist/index.js --external:preact --platform=browser --format=cjs --legal-comments=none",
+    "build-esm": "esbuild src/index.ts --bundle --minify --outfile=dist/index.esm.js --external:preact --platform=browser --format=esm --legal-comments=none",
+    "build": "npm run build-cjs && npm run build-esm",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
