@@ -1,42 +1,49 @@
 import * as esbuild from 'esbuild'
 import child_process from "child_process";
-let start=Date.now();
+let start = Date.now();
 function buildDts(entryPoints, dir) {
     // try {
     //     child_process.execSync(`npx tsc ${entryPoints.join(" ")} --declaration --emitDeclarationOnly --outDir ${dir}`);
     // } catch (e) { }
     /// output
-    try{
-        let result=child_process.execSync(`npx tsc ${entryPoints.join(" ")} --declaration --emitDeclarationOnly --outDir ${dir}`);
+    try {
+        let result = child_process.execSync(`npx tsc ${entryPoints.join(" ")} --declaration --emitDeclarationOnly --outDir ${dir}`);
         console.log(result.toString("utf-8"));
-    }catch(e){
+    } catch (e) {
         console.log(e.stdout.toString("utf-8"));
     }
 }
+const entryPoints = [
+    "src/index.ts",
+    "src/components.tsx"
+];
 const defaults = {
-    entryPoints: [
-        "src/index.ts",
-        "src/components.tsx"
-    ],
-    bundle: true,
     minify: true,
-    external: ["preact"],
     outdir: "dist/",
 }
+async function build(opt) {
+    for (let i = 0; i < entryPoints.length; i++) {
+        await esbuild.build({
+            entryPoints: [entryPoints[i]],
+            ...defaults,
+            ...opt,
+            bundle: i==0,
+            external: i==0?["preact","."]:undefined,
+        })
+    }
+}
 console.log("Building CommonJS");
-await esbuild.build({
-    ...defaults,
+await build({
     format: "cjs",
     outExtension: { ".js": ".cjs" }
 });
-console.log("Building CommonJS DTS")
-buildDts(defaults.entryPoints, "dist/");
 console.log("Building ESM");
-await esbuild.build({
-    ...defaults,
+await build({
     format: "esm",
     outExtension: { ".js": ".mjs" }
 });
-// console.log("Building ESM DTS");
-// buildDts(defaults.entryPoints, "dist/esm");
+console.log("Building CommonJS DTS")
+buildDts(entryPoints, "dist/");
+console.log("built dts")
 console.log("Build Complete in " + (Date.now() - start) + "ms")
+

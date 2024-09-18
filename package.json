@@ -8,18 +8,15 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "node": "./dist/index.cjs",
-      "default": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
+      
     },
     "./components": {
+      "types": "./dist/components.d.ts",
       "import": "./dist/components.mjs",
-      "require": "./dist/components.cjs",
-      "node": "./dist/components.cjs",
-      "default": "./dist/components.cjs",
-      "types": "./dist/components.d.ts"
+      "require": "./dist/components.cjs"
     },
     "./*": [
       "./*",

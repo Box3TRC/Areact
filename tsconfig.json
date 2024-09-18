@@ -4,6 +4,7 @@
         "target": "ESNext",
         "module": "CommonJS",
         "outDir": "dist/cjs",
+        "esModuleInterop":true,
         "moduleResolution": "Node",
         "noImplicitAny": false,
         "jsxFactory": "AreactApp.h",
