@@ -2,13 +2,9 @@
     "compilerOptions": {
         "allowJs": true,
         "target": "ESNext",
-        "module": "NodeNext",
-        // "module": "ES6",
-        "outDir": "dist/",
-        "moduleResolution": "NodeNext",
-        "paths": {
-            
-        },
+        "module": "CommonJS",
+        "outDir": "dist/cjs",
+        "moduleResolution": "Node",
         "noImplicitAny": false,
         "jsxFactory": "AreactApp.h",
         "jsxFragmentFactory": "AreactApp.frag",

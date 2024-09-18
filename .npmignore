@@ -1,0 +1,7 @@
+# 排除一切先，变成白名单
+*
+!dist/**
+!package.json
+!.npmignore
+!LiCENSE
+!README.md
