@@ -2,8 +2,37 @@
   "name": "areact",
   "version": "0.0.1-alpha",
   "description": "React-like UI programming in Dao3.fun(Arena)",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "node": "./dist/index.cjs",
+      "default": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./components": {
+      "import": "./dist/components.mjs",
+      "require": "./dist/components.cjs",
+      "node": "./dist/components.cjs",
+      "default": "./dist/components.cjs",
+      "types": "./dist/components.d.ts"
+    },
+    "./*": [
+      "./*",
+      "./*.d.ts"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./*",
+        "./dist/*"
+      ]
+    }
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/color": "^3.0.6",
@@ -17,7 +46,8 @@
     "htmlparser2": "^9.1.0",
     "typescript": "^5.6.2",
     "uhyphen": "^0.2.0"
-  },"dependencies": {
+  },
+  "dependencies": {
     "preact": "^10.24.0"
   },
   "scripts": {

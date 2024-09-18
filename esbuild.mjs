@@ -20,22 +20,23 @@ const defaults = {
     ],
     bundle: true,
     minify: true,
-    external: ["preact"]
+    external: ["preact"],
+    outdir: "dist/",
 }
 console.log("Building CommonJS");
 await esbuild.build({
     ...defaults,
     format: "cjs",
-    outdir: "dist/cjs"
+    outExtension: { ".js": ".cjs" }
 });
 console.log("Building CommonJS DTS")
-buildDts(defaults.entryPoints, "dist/cjs");
+buildDts(defaults.entryPoints, "dist/");
 console.log("Building ESM");
 await esbuild.build({
     ...defaults,
     format: "esm",
-    outdir: "dist/esm"
+    outExtension: { ".js": ".mjs" }
 });
-console.log("Building ESM DTS");
-buildDts(defaults.entryPoints, "dist/esm");
+// console.log("Building ESM DTS");
+// buildDts(defaults.entryPoints, "dist/esm");
 console.log("Build Complete in " + (Date.now() - start) + "ms")
