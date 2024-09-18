@@ -20,6 +20,7 @@ const entryPoints = [
 const defaults = {
     minify: true,
     outdir: "dist/",
+    platform: "browser",
 }
 async function build(opt) {
     for (let i = 0; i < entryPoints.length; i++) {
