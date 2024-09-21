@@ -35,6 +35,6 @@ jobs:
           scope: "@Box3TRC"
       - run: npm install
       # - run: npm run build # 其实不用的……有prepublishOnly
-      - run: npm publish --registry=https://npm.pkg.github.com/ --scope=@Box3TRC
+      - run: npm run pub-gh
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
