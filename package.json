@@ -30,6 +30,10 @@
       ]
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Box3TRC/Areact"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/color": "^3.0.6",
