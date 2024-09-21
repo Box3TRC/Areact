@@ -52,6 +52,7 @@
     "esbuild:build": "node ./esbuild.mjs",
     "build": "npm run esbuild:build",
     "prepublishOnly": "npm run build",
-    "pub":"npm publish --registry=https://registry.npmjs.org"
+    "pub":"npm publish --registry=https://registry.npmjs.org",
+    "pub-gh":"npm publish --registry=https://npm.pkg.github.com/ --scope=@Box3TRC @Box3TRC/areact"
   }
 }
