@@ -51,9 +51,7 @@
     "test": "esbuild test.tsx --bundle --minify --legal-comments=none --outfile=testout.js",
     "esbuild:build": "node ./esbuild.mjs",
     "build": "npm run esbuild:build",
-    "prepublishOnly": "npm run build"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "prepublishOnly": "npm run build",
+    "pub":"npm publish --registry=https://registry.npmjs.org"
   }
 }
