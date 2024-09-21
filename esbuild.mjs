@@ -21,6 +21,7 @@ const defaults = {
     minify: true,
     outdir: "dist/",
     platform: "browser",
+    treeShaking: true,
 }
 async function build(opt) {
     for (let i = 0; i < entryPoints.length; i++) {
@@ -36,12 +37,12 @@ async function build(opt) {
 console.log("Building CommonJS");
 await build({
     format: "cjs",
-    outExtension: { ".js": ".cjs" }
+    outdir: "dist/cjs",
 });
 console.log("Building ESM");
 await build({
     format: "esm",
-    outExtension: { ".js": ".mjs" }
+    outdir: "dist/esm",
 });
 console.log("Building CommonJS DTS")
 buildDts(entryPoints, "dist/");

@@ -22,19 +22,19 @@ interface UiTextOpt extends UiRenderableOpt {
     autoWordWrap?: boolean | string;
     textLineHeight?: number | string;
 }
-export declare function UiText(opt: UiTextOpt & {
+export declare function Text(opt: UiTextOpt & {
     children?: any;
 }): any;
 interface UiBoxOpt extends UiRenderableOpt {
 }
-export declare function UiBox(opt: UiBoxOpt & {
+export declare function Box(opt: UiBoxOpt & {
     children?: any;
 }): any;
 interface UiImageOpt extends UiRenderableOpt {
     image?: string;
     imageOpacity?: number | string;
 }
-export declare function UiImage(opt: UiImageOpt & {
+export declare function Image(opt: UiImageOpt & {
     children?: any;
 }): any;
 interface UiInputOpt extends UiTextOpt {
@@ -44,7 +44,7 @@ interface UiInputOpt extends UiTextOpt {
     focus?: string | boolean;
     onInput?: (e: any) => void;
 }
-export declare function UiInput(opt: UiInputOpt & {
+export declare function Input(opt: UiInputOpt & {
     children?: any;
 }): any;
 export {};

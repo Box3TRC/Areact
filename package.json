@@ -3,20 +3,19 @@
   "version": "0.0.1-alpha",
   "description": "React-like UI programming in Dao3.fun(Arena)",
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-      
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./components": {
       "types": "./dist/components.d.ts",
-      "import": "./dist/components.mjs",
-      "require": "./dist/components.cjs"
+      "import": "./dist/esm/components.js",
+      "require": "./dist/cjs/components.js"
     },
     "./*": [
       "./*",

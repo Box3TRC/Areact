@@ -1,4 +1,4 @@
-import { AreactApp } from ".";
+import { AreactApp } from "./index.js";
 
 let ui_case_switch_props:Record<string,Record<string,string>>={};
 let comp_prop_dat=AreactApp.initUiComponents();
@@ -59,13 +59,13 @@ interface UiTextOpt extends UiRenderableOpt {
     textLineHeight?: number | string;
 }
 
-export function UiText(opt:UiTextOpt&{children?:any}){
+export function Text(opt:UiTextOpt&{children?:any}){
     // @ts-ignore
     return <ui-text {...toArgs(opt,"text")}>{toChildren(opt)}</ui-text>
 }
 
 interface UiBoxOpt extends UiRenderableOpt {}
-export function UiBox(opt:UiBoxOpt&{children?:any}){
+export function Box(opt:UiBoxOpt&{children?:any}){
     // @ts-ignore
     return <ui-box {...toArgs(opt,"box")}>{toChildren(opt)}</ui-box>
 }
@@ -75,7 +75,7 @@ interface UiImageOpt extends UiRenderableOpt {
     imageOpacity?: number | string;
 }
 
-export function UiImage(opt:UiImageOpt&{children?:any}){
+export function Image(opt:UiImageOpt&{children?:any}){
     // @ts-ignore
     return <ui-image {...toArgs(opt,"image")}>{toChildren(opt)}</ui-image>
 }
@@ -88,7 +88,7 @@ interface UiInputOpt extends UiTextOpt {
     onInput?: (e:any)=>void;
 }
 
-export function UiInput(opt:UiInputOpt&{children?:any}){
+export function Input(opt:UiInputOpt&{children?:any}){
     // @ts-ignore
     return <ui-input {...toArgs(opt,"input")}>{toChildren(opt)}</ui-input>
 }

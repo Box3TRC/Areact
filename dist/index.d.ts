@@ -1,6 +1,6 @@
 import { h } from "preact";
 export declare const html: (strings: TemplateStringsArray, ...values: any[]) => import("preact").VNode<import("preact").Attributes> | import("preact").VNode<import("preact").Attributes>[];
-export declare const document: Document;
+export declare const document: any;
 export declare class AreactApp {
     root: HTMLElement;
     uiNode: UiNode;

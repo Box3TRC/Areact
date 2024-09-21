@@ -1,17 +1,15 @@
-globalThis.global = globalThis;
-import { h, Fragment, render } from "preact";
+globalThis.global = globalThis;import { h, Fragment, render } from "preact";
 import Color from "color";
 // @ts-ignore
-import { parseHTML,Event } from "../mod-linkedom";
+import { parseHTML } from "../mod-linkedom/esm";
 import htm from 'htm';
 export const html = htm.bind(h);
-
 const parsed = parseHTML("<html><body></body></html>");
-const {window}=parsed;
+const {window,Event}=parsed;
 export const { document } = parsed;
 // @ts-ignore
 globalThis.document = document;
-globalThis.window = window;
+// globalThis.window = window;
 // @ts-ignore
 if (globalThis.screenWidth === undefined) globalThis.screenWidth = 1200;
 // @ts-ignore
