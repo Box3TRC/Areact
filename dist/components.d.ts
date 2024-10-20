@@ -1,3 +1,10 @@
+import type { FunctionalComponent } from "preact";
+export interface AreactHTMLElement extends HTMLElement {
+    uiNode: UiRenderable;
+}
+export interface AreactEvent extends Event {
+    target: AreactHTMLElement;
+}
 interface UiRenderableOpt {
     id?: string;
     x?: string;
@@ -11,7 +18,7 @@ interface UiRenderableOpt {
     autoResize?: 'NONE' | 'X' | 'Y' | 'XY';
     visible?: boolean | string;
     pointerEventBehavior?: string;
-    onClick?: (e: any) => void;
+    onClick?: (e: AreactEvent) => void;
 }
 interface UiTextOpt extends UiRenderableOpt {
     text?: string;
@@ -24,27 +31,27 @@ interface UiTextOpt extends UiRenderableOpt {
 }
 export declare function Text(opt: UiTextOpt & {
     children?: any;
-}): any;
+}): FunctionalComponent;
 interface UiBoxOpt extends UiRenderableOpt {
 }
 export declare function Box(opt: UiBoxOpt & {
     children?: any;
-}): any;
+}): FunctionalComponent;
 interface UiImageOpt extends UiRenderableOpt {
     image?: string;
     imageOpacity?: number | string;
 }
 export declare function Image(opt: UiImageOpt & {
     children?: any;
-}): any;
+}): FunctionalComponent;
 interface UiInputOpt extends UiTextOpt {
     placeholder?: string;
     placeholderColor?: string;
     placeholderOpacity?: number | string;
     focus?: string | boolean;
-    onInput?: (e: any) => void;
+    onInput?: (e: AreactEvent) => void;
 }
 export declare function Input(opt: UiInputOpt & {
     children?: any;
-}): any;
+}): FunctionalComponent;
 export {};

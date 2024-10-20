@@ -1,4 +1,5 @@
-import { AreactApp } from "./index.js";
+import { AreactApp,type HTMLElement,type Event } from "./index.js";
+import type { FunctionalComponent } from "preact";
 
 let ui_case_switch_props:Record<string,Record<string,string>>={};
 let comp_prop_dat=AreactApp.initUiComponents();
@@ -6,7 +7,13 @@ let ui_node_types=Object.keys(comp_prop_dat);
 ui_node_types.forEach((node_type)=>{
     let {string_props_name}=comp_prop_dat[node_type];
     ui_case_switch_props[node_type]=string_props_name;
-})
+});
+export interface AreactHTMLElement extends HTMLElement{
+    uiNode: UiRenderable;
+}
+export interface AreactEvent extends Event{
+    target:AreactHTMLElement;
+}
 function toArgs(opt:any,node_type:string){
     let args={};
     for(let key in opt){
@@ -45,7 +52,7 @@ interface UiRenderableOpt {
     autoResize?: 'NONE' | 'X' | 'Y' | 'XY';
     visible?: boolean | string;
     pointerEventBehavior?: string;
-    onClick?: (e:any)=>void;
+    onClick?: (e:AreactEvent)=>void;
 }
 
 
@@ -59,14 +66,12 @@ interface UiTextOpt extends UiRenderableOpt {
     textLineHeight?: number | string;
 }
 
-export function Text(opt:UiTextOpt&{children?:any}){
-    // @ts-ignore
+export function Text(opt:UiTextOpt&{children?:any}):FunctionalComponent{
     return <ui-text {...toArgs(opt,"text")}>{toChildren(opt)}</ui-text>
 }
 
 interface UiBoxOpt extends UiRenderableOpt {}
-export function Box(opt:UiBoxOpt&{children?:any}){
-    // @ts-ignore
+export function Box(opt:UiBoxOpt&{children?:any}):FunctionalComponent{
     return <ui-box {...toArgs(opt,"box")}>{toChildren(opt)}</ui-box>
 }
 
@@ -75,8 +80,7 @@ interface UiImageOpt extends UiRenderableOpt {
     imageOpacity?: number | string;
 }
 
-export function Image(opt:UiImageOpt&{children?:any}){
-    // @ts-ignore
+export function Image(opt:UiImageOpt&{children?:any}):FunctionalComponent{
     return <ui-image {...toArgs(opt,"image")}>{toChildren(opt)}</ui-image>
 }
 
@@ -85,10 +89,10 @@ interface UiInputOpt extends UiTextOpt {
     placeholderColor?: string;
     placeholderOpacity?: number | string;
     focus?: string|boolean;
-    onInput?: (e:any)=>void;
+    onInput?: (e:AreactEvent)=>void;
 }
 
-export function Input(opt:UiInputOpt&{children?:any}){
+export function Input(opt:UiInputOpt&{children?:any}):FunctionalComponent{
     // @ts-ignore
     return <ui-input {...toArgs(opt,"input")}>{toChildren(opt)}</ui-input>
 }

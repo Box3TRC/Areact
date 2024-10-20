@@ -1,6 +1,6 @@
-import { AreactApp, hooks } from "./src/index";
+import { Areact, hooks } from "./src/index";
 import { Text,Input,Box,Image } from "./src/components";
-let app = new AreactApp();
+let app = new Areact();
 
 function App() {
   const [name,setName]=hooks.useState("");

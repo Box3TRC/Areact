@@ -1,10 +1,10 @@
 import { h } from "preact";
 export declare const html: (strings: TemplateStringsArray, ...values: any[]) => import("preact").VNode<import("preact").Attributes> | import("preact").VNode<import("preact").Attributes>[];
-export declare const document: any;
+export declare const document: any, HTMLElement: any, Event: any;
 export declare class AreactApp {
     root: HTMLElement;
     uiNode: UiNode;
-    __interval: any;
+    private __interval;
     static h: typeof h;
     static frag: import("preact").FunctionComponent<{}>;
     static supportedNodes: string[];
@@ -29,4 +29,5 @@ export declare class AreactApp {
     createNodeInUi(node: Element | HTMLElement): UiText | UiBox | UiInput | UiImage | UiRenderable;
     renderNodes(node: Element, uiNode: UiRenderable | UiNode): void;
 }
+export declare const Areact: typeof AreactApp;
 export * as hooks from "preact/hooks";

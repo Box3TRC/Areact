@@ -7,9 +7,10 @@
         "esModuleInterop":true,
         "moduleResolution": "Node",
         "noImplicitAny": false,
-        "jsxFactory": "AreactApp.h",
-        "jsxFragmentFactory": "AreactApp.frag",
-        "jsx": "react"
+        "jsxFactory": "Areact.h",
+        "jsxFragmentFactory": "Areact.frag",
+        "jsx": "react",
+        "lib": ["ESNext"]
     },
     "include": [
         "./src/**/*",

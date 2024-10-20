@@ -1,12 +1,13 @@
-globalThis.global = globalThis;import { h, Fragment, render } from "preact";
+globalThis.global = globalThis;
+import { h, Fragment, render } from "preact";
 import Color from "color";
 // @ts-ignore
 import { parseHTML } from "../mod-linkedom/esm";
 import htm from 'htm';
 export const html = htm.bind(h);
 const parsed = parseHTML("<html><body></body></html>");
-const {window,Event}=parsed;
-export const { document } = parsed;
+const {window}=parsed;
+export const { document,HTMLElement,Event } = parsed;
 // @ts-ignore
 globalThis.document = document;
 // globalThis.window = window;
@@ -46,7 +47,7 @@ function parseSize(text: string): { scale: number, offset: number } {
 export class AreactApp {
     root: HTMLElement;
     uiNode: UiNode;
-    __interval: any;
+    private __interval: any;
     static h = h;
     static frag = Fragment;
     static supportedNodes = [
@@ -302,4 +303,5 @@ export class AreactApp {
         }
     }
 }
+export const Areact=AreactApp;
 export * as hooks from "preact/hooks"
