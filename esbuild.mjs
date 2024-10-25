@@ -46,6 +46,7 @@ await build({
 });
 console.log("Building CommonJS DTS")
 buildDts(entryPoints, "dist/");
+buildDts(entryPoints, "dist/esm"); // for jsr
 console.log("built dts")
 console.log("Build Complete in " + (Date.now() - start) + "ms")
 
