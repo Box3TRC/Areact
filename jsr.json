@@ -1,6 +1,6 @@
 {
     "name": "@tobylai/dao3-areact",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "exports": {
         ".": "./dist/esm/index.js",
         "./components": "./dist/esm/components.js"
