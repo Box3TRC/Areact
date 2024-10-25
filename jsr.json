@@ -6,6 +6,6 @@
         "./components": "./dist/esm/components.js"
     },
     "publish": {
-        "include":["dist/**"]
+        "include":["dist/**","README.md"]
     }
 }
