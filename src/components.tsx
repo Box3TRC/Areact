@@ -1,8 +1,8 @@
-import { AreactApp,type HTMLElement,type Event } from "./index.js";
+import { Areact,type HTMLElement,type Event } from "./index.js";
 import type { FunctionalComponent } from "preact";
 
 let ui_case_switch_props:Record<string,Record<string,string>>={};
-let comp_prop_dat=AreactApp.initUiComponents();
+let comp_prop_dat=Areact.initUiComponents();
 let ui_node_types=Object.keys(comp_prop_dat);
 ui_node_types.forEach((node_type)=>{
     let {string_props_name}=comp_prop_dat[node_type];
@@ -41,13 +41,13 @@ function toChildren(opt:any){
 
 interface UiRenderableOpt {
     id?: string;
-    x?:string;
-    y?:string;
-    width?:string;
-    height?:string;
-    anchor?: string;
-    backgroundColor?: string;
-    backgroundOpacity?: number | string;
+    x?:string; // ?px or ?% or ?px+?% ...
+    y?:string;// ?px or ?% or ?px+?% ...
+    width?:string;// ?px or ?% or ?px+?% ...
+    height?:string;// ?px or ?% or ?px+?% ...
+    anchor?: string;// ?%,?%
+    backgroundColor?: string; // css color
+    backgroundOpacity?: number | string; // ?%
     zIndex?: number | string;
     autoResize?: 'NONE' | 'X' | 'Y' | 'XY';
     visible?: boolean | string;
@@ -64,6 +64,10 @@ interface UiTextOpt extends UiRenderableOpt {
     textYAlignment?: 'Center' | 'Top' | 'Bottom';
     autoWordWrap?: boolean | string;
     textLineHeight?: number | string;
+    textStrokeColor?: string;
+    textStrokeOpacity?: number | string;
+    textStrokeThickness?: number | string;
+    textFontFamily?: "Default" | "AlimamaFangYuanTi" | "CodeNewRomanBold";
 }
 
 export function Text(opt:UiTextOpt&{children?:any}):FunctionalComponent{
@@ -78,6 +82,7 @@ export function Box(opt:UiBoxOpt&{children?:any}):FunctionalComponent{
 interface UiImageOpt extends UiRenderableOpt {
     image?: string;
     imageOpacity?: number | string;
+    imageDisplayMode?: "Fill" | "Contain" | "Cover" | "None";
 }
 
 export function Image(opt:UiImageOpt&{children?:any}):FunctionalComponent{

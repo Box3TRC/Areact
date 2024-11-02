@@ -84,6 +84,10 @@ export class AreactApp {
             "textYAlignment": "string",
             "autoWordWrap": "boolean",
             "textLineHeight": "number",
+            "textStrokeColor": "color",
+            "textStrokeOpacity":"percent",
+            "textStrokeThickness": "number",
+            "textFontFamily":"enum:Default,AlimamaFangYuanTi,CodeNewRomanBold"
         });
         res["text"].string_props_name["textContent"]="text";// 前者uinode，后者html
         res["box"] = this._uiPropsGen({});
@@ -103,6 +107,7 @@ export class AreactApp {
         res["image"] = this._uiPropsGen({
             "image": "string",
             "imageOpacity": "percent",
+            "imageDisplayMode":"enum:Fill,Contain,Cover,None"
         });
         return res;
     }
