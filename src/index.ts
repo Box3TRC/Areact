@@ -6,8 +6,8 @@ import { parseHTML } from "../mod-linkedom/esm";
 import htm from 'htm';
 export const html = htm.bind(h);
 const parsed = parseHTML("<html><body></body></html>");
-const {window}=parsed;
-export const { document,HTMLElement,Event } = parsed;
+// const {window}=parsed;
+export const { document,HTMLElement,Event,window } = parsed;
 // @ts-ignore
 globalThis.document = document;
 // globalThis.window = window;

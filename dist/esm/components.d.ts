@@ -28,6 +28,10 @@ interface UiTextOpt extends UiRenderableOpt {
     textYAlignment?: 'Center' | 'Top' | 'Bottom';
     autoWordWrap?: boolean | string;
     textLineHeight?: number | string;
+    textStrokeColor?: string;
+    textStrokeOpacity?: number | string;
+    textStrokeThickness?: number | string;
+    textFontFamily?: "Default" | "AlimamaFangYuanTi" | "CodeNewRomanBold";
 }
 export declare function Text(opt: UiTextOpt & {
     children?: any;
@@ -40,6 +44,7 @@ export declare function Box(opt: UiBoxOpt & {
 interface UiImageOpt extends UiRenderableOpt {
     image?: string;
     imageOpacity?: number | string;
+    imageDisplayMode?: "Fill" | "Contain" | "Cover" | "None";
 }
 export declare function Image(opt: UiImageOpt & {
     children?: any;

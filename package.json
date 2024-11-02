@@ -1,6 +1,6 @@
 {
   "name": "dao3-areact",
-  "version": "0.0.2-alpha",
+  "version": "0.0.3-alpha",
   "description": "React-like UI programming in Dao3.fun(Arena)",
   "type": "module",
   "main": "dist/cjs/index.js",
